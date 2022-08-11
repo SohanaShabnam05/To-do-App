@@ -64,7 +64,7 @@ function Todo () {
 
                     <h3>{elem}</h3>
 
-                    <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={() => deleteItem}></i>
+                    <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={() => deleteItem(ind)}></i>
 
                 </div>
                         )
