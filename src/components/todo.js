@@ -12,17 +12,17 @@ function Todo () {
         if(!inputData) {
 
         }else{
-            setItems([...items, inputData]);
+            const allInputData = { id: new Date().getTime().toString(), name:inputData }
+            setItems([...items, allInputData]);
             setInputData('');
         }
            
     }
 
     // Delete the items
-    const deleteItem = (id) => {
-        console.log(id);
-        const updateditems = items.filter((elem, ind) => {
-            return ind !== id;
+    const deleteItem = (index) => {
+        const updateditems = items.filter((elem) => {
+            return index !== elem.id;
         });
 
         setItems(updateditems);
@@ -58,13 +58,13 @@ function Todo () {
             <div className="showItems">
 
                 {
-                    items.map((elem, ind) => {
+                    items.map((elem) => {
                         return (
-                           <div className="eachItem" key={ind}>
+                           <div className="eachItem" key={elem.id}>
 
-                    <h3>{elem}</h3>
+                    <h3>{elem.name}</h3>
 
-                    <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={() => deleteItem(ind)}></i>
+                    <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={() => deleteItem(elem.id)}></i>
 
                 </div>
                         )
